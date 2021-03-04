@@ -26,10 +26,11 @@ class NormalLoadActivity : AppCompatActivity() {
                     }
 
                     override fun onResourceReady(pictureDrawable: PictureDrawable?) {
+                        imageview.setImageDrawable(pictureDrawable)
                         Toast.makeText(baseContext, "Image ready", Toast.LENGTH_SHORT).show()
                     }
 
                 })
-                .load(Uri.parse(IMAGE_URL), imageview)
+                .load(Uri.parse(IMAGE_URL))
     }
 }

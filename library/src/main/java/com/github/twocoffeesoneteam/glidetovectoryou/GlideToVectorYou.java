@@ -2,10 +2,13 @@ package com.github.twocoffeesoneteam.glidetovectoryou;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.PictureDrawable;
 import android.net.Uri;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import android.view.View;
 import android.widget.ImageView;
 
@@ -50,7 +53,7 @@ public class GlideToVectorYou {
         return instance;
     }
 
-    public void load(Uri uri, ImageView imageView) {
+    public void load(Uri uri) {
         if (placeHolderLoading != -1 && placeHolderError != -1) {
             requestBuilder.apply(
                     new RequestOptions()
@@ -59,7 +62,12 @@ public class GlideToVectorYou {
             );
         }
 
-        requestBuilder.load(uri).into(imageView);
+        requestBuilder.load(uri).into(new SimpleTarget<PictureDrawable>() {
+            @Override
+            public void onResourceReady(@NonNull PictureDrawable resource, @Nullable Transition<? super PictureDrawable> transition) {
+                // Do nothing
+            }
+        });
 
     }
 
