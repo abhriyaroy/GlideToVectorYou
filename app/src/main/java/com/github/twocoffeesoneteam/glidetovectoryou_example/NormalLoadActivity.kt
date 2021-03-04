@@ -1,5 +1,6 @@
 package com.github.twocoffeesoneteam.glidetovectoryou_example
 
+import android.graphics.drawable.PictureDrawable
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -24,9 +25,10 @@ class NormalLoadActivity : AppCompatActivity() {
                         Toast.makeText(baseContext, "Loading failed", Toast.LENGTH_SHORT).show()
                     }
 
-                    override fun onResourceReady() {
+                    override fun onResourceReady(pictureDrawable: PictureDrawable?) {
                         Toast.makeText(baseContext, "Image ready", Toast.LENGTH_SHORT).show()
                     }
+
                 })
                 .load(Uri.parse(IMAGE_URL), imageview)
     }

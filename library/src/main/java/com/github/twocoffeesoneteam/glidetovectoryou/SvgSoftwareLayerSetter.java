@@ -45,7 +45,7 @@ public class SvgSoftwareLayerSetter implements RequestListener<PictureDrawable> 
         view.setLayerType(ImageView.LAYER_TYPE_SOFTWARE, null);
 
         if (customListener != null) {
-            customListener.onResourceReady();
+            customListener.onResourceReady(resource);
         }
 
         return false;
