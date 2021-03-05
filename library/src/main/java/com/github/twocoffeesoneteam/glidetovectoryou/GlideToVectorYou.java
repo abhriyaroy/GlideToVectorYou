@@ -53,6 +53,19 @@ public class GlideToVectorYou {
         return instance;
     }
 
+    public void load(Uri uri, ImageView imageView) {
+        if (placeHolderLoading != -1 && placeHolderError != -1) {
+            requestBuilder.apply(
+                    new RequestOptions()
+                            .placeholder(placeHolderLoading)
+                            .error(placeHolderError)
+            );
+        }
+
+        requestBuilder.load(uri).into(imageView);
+
+    }
+
     public void load(Uri uri) {
         if (placeHolderLoading != -1 && placeHolderError != -1) {
             requestBuilder.apply(

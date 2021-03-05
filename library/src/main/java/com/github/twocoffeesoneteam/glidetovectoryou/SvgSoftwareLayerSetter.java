@@ -41,6 +41,12 @@ public class SvgSoftwareLayerSetter implements RequestListener<PictureDrawable> 
     @Override
     public boolean onResourceReady(PictureDrawable resource, Object model,
                                    Target<PictureDrawable> target, DataSource dataSource, boolean isFirstResource) {
+        try {
+            ImageView view = ((ImageViewTarget<?>) target).getView();
+            view.setLayerType(ImageView.LAYER_TYPE_SOFTWARE, null);
+        } catch (ClassCastException classCastException){
+            // Do nothing
+        }
 
         if (customListener != null) {
             customListener.onResourceReady(resource);
